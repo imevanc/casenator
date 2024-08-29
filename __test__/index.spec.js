@@ -124,3 +124,74 @@ describe("toKebabCase", () => {
     expect(toKebabCase("   The Pawsitive Team   ")).toBe("the-pawsitive-team");
   });
 });
+
+describe("toUpperCase", () => {
+  test("should convert a string to UPPERCASE", () => {
+    expect(toUpperCase("hello world")).toBe("HELLO WORLD");
+  });
+
+  test("should handle special characters in UPPERCASE conversion", () => {
+    expect(toUpperCase("hello @world!")).toBe("HELLO @WORLD!");
+  });
+
+  test("should throw TypeError for non-string input in UPPERCASE conversion", () => {
+    expect(() => toUpperCase(123)).toThrow(TypeError);
+    expect(() => toUpperCase(null)).toThrow(TypeError);
+    expect(() => toUpperCase({})).toThrow(TypeError);
+  });
+});
+
+describe("toLowerCase", () => {
+  test("should convert a string to lowercase", () => {
+    expect(toLowerCase("HELLO WORLD")).toBe("hello world");
+  });
+
+  test("should handle special characters in lowercase conversion", () => {
+    expect(toLowerCase("HELLO @WORLD!")).toBe("hello @world!");
+  });
+
+  test("should throw TypeError for non-string input in lowercase conversion", () => {
+    expect(() => toLowerCase(123)).toThrow(TypeError);
+    expect(() => toLowerCase(null)).toThrow(TypeError);
+    expect(() => toLowerCase([])).toThrow(TypeError);
+  });
+});
+
+describe("reverseString", () => {
+  test("should reverse a string", () => {
+    expect(reverseString("hello")).toBe("olleh");
+  });
+
+  test("should reverse a string with spaces and special characters", () => {
+    expect(reverseString("hello world!")).toBe("!dlrow olleh");
+  });
+
+  test("should reverse a single character string", () => {
+    expect(reverseString("a")).toBe("a");
+  });
+
+  test("should throw TypeError for non-string input in reverseString", () => {
+    expect(() => reverseString(123)).toThrow(TypeError);
+    expect(() => reverseString(null)).toThrow(TypeError);
+  });
+});
+
+describe("subString", () => {
+  test("should return a substring from a string", () => {
+    expect(substring("hello world", 0, 5)).toBe("hello");
+  });
+
+  test("should return substring with only start index provided", () => {
+    expect(substring("hello world", 6)).toBe("world");
+  });
+
+  test("should handle out-of-bound indexes in substring", () => {
+    expect(substring("hello world", 0, 50)).toBe("hello world");
+    expect(substring("hello world", 12)).toBe("");
+  });
+
+  test("should throw TypeError for non-string input in substring", () => {
+    expect(() => substring(123, 0, 5)).toThrow(TypeError);
+    expect(() => substring(null, 0, 5)).toThrow(TypeError);
+  });
+});
