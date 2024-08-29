@@ -7,6 +7,7 @@ const {
   substring,
   reverseString,
 } = require("../src/index");
+
 describe("toCamelCase", () => {
   test("should throw TypeError for non-string input (camelCase)", () => {
     expect(() => toCamelCase(123)).toThrow(TypeError);
