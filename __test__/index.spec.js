@@ -1,12 +1,12 @@
-const {
-  toCamelCase,
-  toUpperCase,
-  toLowerCase,
-  toKebabCase,
-  toPascalCase,
-  substring,
+import {
   reverseString,
-} = require("../src/index");
+  substring,
+  toCamelCase,
+  toKebabCase,
+  toLowerCase,
+  toPascalCase,
+  toUpperCase,
+} from "../src";
 
 describe("toCamelCase", () => {
   test("should throw TypeError for non-string input (camelCase)", () => {

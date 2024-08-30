@@ -1,7 +1,7 @@
 /**
  * Converts a string to camelCase.
  */
-const toCamelCase = (input) => {
+export const toCamelCase = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -13,7 +13,7 @@ const toCamelCase = (input) => {
 /**
  * Converts a string to PascalCase.
  */
-const toPascalCase = (input) => {
+export const toPascalCase = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -25,7 +25,7 @@ const toPascalCase = (input) => {
 /**
  * Converts a string to kebab-case.
  */
-const toKebabCase = (input) => {
+export const toKebabCase = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -40,7 +40,7 @@ const toKebabCase = (input) => {
 /**
  * Converts a string to upper case.
  */
-const toUpperCase = (input) => {
+export const toUpperCase = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -50,7 +50,7 @@ const toUpperCase = (input) => {
 /**
  * Converts a string to lower case.
  */
-const toLowerCase = (input) => {
+export const toLowerCase = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -60,7 +60,7 @@ const toLowerCase = (input) => {
 /**
  * Converts a string to a substring.
  */
-const substring = (input, start, end) => {
+export const substring = (input, start, end) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
@@ -70,19 +70,9 @@ const substring = (input, start, end) => {
 /**
  * Reverse a string.
  */
-const reverseString = (input) => {
+export const reverseString = (input) => {
   if (typeof input !== "string") {
     throw new TypeError("Input must be a string");
   }
   return input.split("").reverse().join("");
-};
-
-module.exports = {
-  toCamelCase,
-  toPascalCase,
-  toKebabCase,
-  reverseString,
-  substring,
-  toLowerCase,
-  toUpperCase,
 };
