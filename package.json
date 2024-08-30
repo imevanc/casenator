@@ -1,11 +1,12 @@
 {
   "name": "casenator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Casenator is a lightweight utility package for converting strings between camelCase, PascalCase, kebab-case, uppercase, lowercase, and more, with built-in exception handling.",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test:unit": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "build": "babel src -d dist"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
   },
   "homepage": "https://github.com/imevanc/casenator#readme",
   "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
     "jest": "^29.7.0",
     "prettier": "^3.3.3"
   }
