@@ -1,4 +1,4 @@
-# 🦸‍♂️ Casenator - The Ultimate String Transformation Utility! ⚡️
+# 🦸‍♂️ Casenator - The Ultimate String Transformation Utility ⚡️
 
 [![npm version](https://badge.fury.io/js/casenator.svg)](https://badge.fury.io/js/casenator)
 [![License](https://img.shields.io/npm/l/casenator)](https://img.shields.io/npm/l/casenator)
