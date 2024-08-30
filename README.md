@@ -1,6 +1,6 @@
 # 🦸‍♂️ Casenator - The Ultimate String Transformation Utility ⚡️
 
-[![npm version](https://badge.fury.io/js/casenator.svg)](https://badge.fury.io/js/casenator)
+[![npm version](https://img.shields.io/npm/v/casenator.svg)](https://www.npmjs.com/package/casenator)
 [![License](https://img.shields.io/npm/l/casenator)](https://img.shields.io/npm/l/casenator)
 
 **Casenator** is your go-to tool for all things string transformation. Whether you need to switch between `camelCase`, `PascalCase`, `kebab-case`, or even reverse strings and handle case conversions, Casenator has you covered! 🎉
