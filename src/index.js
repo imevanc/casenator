@@ -76,3 +76,57 @@ export const reverseString = (input) => {
   }
   return input.split("").reverse().join("");
 };
+
+/**
+ * Converts a string to capital case.
+ */
+export const toCapitalCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .trim() // Remove leading and trailing spaces
+    .replace(/[-_.]+/g, " ") // Replace hyphens, underscores, and dots with spaces
+    .split(/\s+/) // Split by one or more spaces
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter
+    .join(" "); // Join words back together with a space
+};
+
+/**
+ * Converts a string to constant case.
+ */
+export const toConstantCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .trim() // Remove leading/trailing whitespace
+    .replace(/([a-z])([A-Z])/g, "$1 $2") // Convert camelCase to space-separated words
+    .replace(/[\W_]+/g, " ") // Replace non-alphanumeric characters (and underscores) with spaces
+    .toUpperCase() // Convert to uppercase
+    .trim() // Remove leading/trailing spaces again
+    .replace(/\s+/g, "_"); // Replace spaces with underscores
+};
+
+/**
+ * Converts a string to dot case.
+ */
+export const toDotCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .trim() // Remove leading/trailing whitespace
+    .replace(/([a-z])([A-Z])/g, "$1 $2") // Convert camelCase to words
+    .replace(/[\s\-_]+/g, ".") // Replace spaces, hyphens, and underscores with dots
+    .replace(/\.+/g, ".") // Replace multiple consecutive dots with a single dot
+    .replace(/^\.+|\.+$/g, "") // Remove leading or trailing dots
+    .toLowerCase(); // Convert to lowercase
+};
+
+/**
+ * Converts a string to no case.
+ */
+export const toNoCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .toLowerCase() // Convert the entire string to lowercase
+    .replace(/[^\w\s]+/g, " ") // Remove all special characters except spaces
+    .replace(/[\s\-_.\/]+/g, " ") // Replace remaining delimiters with a single space
+    .trim() // Remove leading/trailing whitespace
+    .replace(/\s+/g, " "); // Replace multiple consecutive spaces with a single space
+};
