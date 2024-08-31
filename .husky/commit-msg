@@ -1,0 +1,7 @@
+# Skip commit-msg hook if it's a semantic-release commit (with [skip ci])
+if grep -q '\[skip ci\]' "$1"; then
+  echo "Skipping commit-msg hook for semantic-release commit"
+  exit 0
+fi
+
+npx --no-install commitlint --edit "$1"
