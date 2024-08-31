@@ -2,8 +2,12 @@ import {
   reverseString,
   substring,
   toCamelCase,
+  toCapitalCase,
+  toConstantCase,
+  toDotCase,
   toKebabCase,
   toLowerCase,
+  toNoCase,
   toPascalCase,
   toUpperCase,
 } from "../src";
@@ -194,5 +198,118 @@ describe("subString", () => {
   test("should throw TypeError for non-string input in substring", () => {
     expect(() => substring(123, 0, 5)).toThrow(TypeError);
     expect(() => substring(null, 0, 5)).toThrow(TypeError);
+  });
+});
+
+describe("toCapitalCase", () => {
+  test("should convert to capital case", () => {
+    expect(toCapitalCase("hello world")).toBe("Hello World");
+    expect(toCapitalCase("HELLO WORLD")).toBe("Hello World");
+    expect(toCapitalCase("hello-world")).toBe("Hello World");
+    expect(toCapitalCase("hello_world")).toBe("Hello World");
+    expect(toCapitalCase(" hello world ")).toBe("Hello World");
+    expect(toCapitalCase(" hello . world ")).toBe("Hello World");
+  });
+
+  test("should handle single word inputs", () => {
+    expect(toCapitalCase("hello")).toBe("Hello");
+  });
+
+  test("should handle empty string", () => {
+    expect(toCapitalCase("")).toBe("");
+  });
+
+  test("should throw error for non-string input", () => {
+    expect(() => toCapitalCase(123)).toThrow(TypeError);
+  });
+
+  test("should handle special characters", () => {
+    expect(toCapitalCase("hello-world!")).toBe("Hello World!");
+  });
+});
+
+describe("toConstantCase", () => {
+  test("should convert to CONSTANT_CASE", () => {
+    expect(toConstantCase("hello world")).toBe("HELLO_WORLD");
+    expect(toConstantCase("HELLO WORLD")).toBe("HELLO_WORLD");
+    expect(toConstantCase("hello-world")).toBe("HELLO_WORLD");
+    expect(toConstantCase("helloWorld")).toBe("HELLO_WORLD");
+    expect(toConstantCase("hello-World   ")).toBe("HELLO_WORLD");
+    expect(toConstantCase("Hello WORLD1   ")).toBe("HELLO_WORLD1");
+    expect(toConstantCase("hello-  World   ")).toBe("HELLO_WORLD");
+  });
+
+  test("should handle single word inputs", () => {
+    expect(toConstantCase("hello")).toBe("HELLO");
+  });
+
+  test("should handle empty string", () => {
+    expect(toConstantCase("")).toBe("");
+  });
+
+  test("should throw error for non-string input", () => {
+    expect(() => toConstantCase(123)).toThrow(TypeError);
+  });
+
+  test("should handle special characters", () => {
+    expect(toConstantCase("hello-world!")).toBe("HELLO_WORLD");
+  });
+});
+
+describe("toDotCase", () => {
+  test("should convert to dot.case", () => {
+    expect(toDotCase("hello world")).toBe("hello.world");
+    expect(toDotCase("HELLO WORLD")).toBe("hello.world");
+    expect(toDotCase("hello-world")).toBe("hello.world");
+    expect(toDotCase("helloWorld")).toBe("hello.world");
+    expect(toDotCase("  hello  WORLD  ")).toBe("hello.world");
+    expect(toDotCase("hello.  World")).toBe("hello.world");
+    expect(toDotCase("hello    world")).toBe("hello.world");
+    expect(toDotCase("  hello World-  ")).toBe("hello.world");
+  });
+
+  test("should handle single word inputs", () => {
+    expect(toDotCase("hello")).toBe("hello");
+  });
+
+  test("should handle empty string", () => {
+    expect(toDotCase("")).toBe("");
+  });
+
+  test("should throw error for non-string input", () => {
+    expect(() => toDotCase(123)).toThrow(TypeError);
+  });
+
+  test("should handle special characters", () => {
+    expect(toDotCase("hello-world!")).toBe("hello.world!");
+  });
+});
+
+describe("toNoCase", () => {
+  test("should convert to no case", () => {
+    expect(toNoCase("hello world")).toBe("hello world");
+    expect(toNoCase("HELLO WORLD")).toBe("hello world");
+    expect(toNoCase("hello-world")).toBe("hello world");
+    expect(toNoCase("hello_world")).toBe("hello world");
+    expect(toNoCase("hello   world  ")).toBe("hello world");
+    expect(toNoCase("hello--world ")).toBe("hello world");
+    expect(toNoCase("  hello.world")).toBe("hello world");
+    expect(toNoCase("hello_/world ")).toBe("hello world");
+  });
+
+  test("should handle single word inputs", () => {
+    expect(toNoCase("hello")).toBe("hello");
+  });
+
+  test("should handle empty string", () => {
+    expect(toNoCase("")).toBe("");
+  });
+
+  test("should throw error for non-string input", () => {
+    expect(() => toNoCase(123)).toThrow(TypeError);
+  });
+
+  test("should handle special characters", () => {
+    expect(toNoCase("hello-world!")).toBe("hello world");
   });
 });
