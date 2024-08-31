@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/imevanc/casenator/compare/v1.1.0...v1.2.0) (2024-08-31)
+
+
+### Features
+
+* add toDotCase, toNotCase, toConstantCase and toCapitalCase ([#10](https://github.com/imevanc/casenator/issues/10)) ([655ab5c](https://github.com/imevanc/casenator/commit/655ab5c120d6267a3ff03ac1c774da149efe0a52))
+
 # [1.1.0](https://github.com/imevanc/casenator/compare/v1.0.0...v1.1.0) (2024-08-31)
 
 
