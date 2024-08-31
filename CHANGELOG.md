@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/imevanc/casenator/compare/v1.2.0...v1.2.1) (2024-08-31)
+
+
+### Bug Fixes
+
+* update readme ([b650708](https://github.com/imevanc/casenator/commit/b65070878692acb4c362911c5751bfb499b098e4))
+
 # [1.2.0](https://github.com/imevanc/casenator/compare/v1.1.0...v1.2.0) (2024-08-31)
 
 
