@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/casenator.svg)](https://www.npmjs.com/package/casenator)
 [![License](https://img.shields.io/npm/l/casenator)](https://img.shields.io/npm/l/casenator)
 
-**Casenator** is your go-to tool for all things string transformation. Whether you need to switch between `camelCase`, `PascalCase`, `kebab-case`, or even reverse strings and handle case conversions, Casenator has you covered! 🎉
+**Casenator** is your go-to tool for all things string transformation. Whether you need to switch between `camelCase`, `PascalCase`, `kebab-case` and many more! 🎉
 
 ---
 
@@ -11,11 +11,15 @@
 
 - 🔄 **CamelCase** – Convert any string to `camelCase`.
 - 🏛 **PascalCase** – Format strings in `PascalCase`.
-- 📐 **Kebab-Case** – Get your strings into `kebab-case`.
+- 📐 **KebabCase** – Get your strings into `kebab-case`.
 - 🔠 **Uppercase** – Make everything UPPERCASE.
 - 🔡 **Lowercase** – Convert text to lowercase.
 - 🔙 **Reverse** – Reverse the characters in a string.
 - 🔍 **Substring** – Extract specific parts of your string.
+- 🦊 **CapitalCase** - Convert any string to `Capital Case`.
+- 🐒 **DotCase** - Format string in `dot.case`.
+- 🦀 **ConstantCase** - Get your string into `CONSTANT_CASE`.
+- 🐸 **NoCase** - Convert any string to `no case`.
 
 ---
 
@@ -34,7 +38,18 @@ Here’s how to start transforming your strings with Casenator:
 
 ```javascript
 // Import the functions you need from Casenator
-import { toCamelCase, toPascalCase, toKebabCase, toUpperCase, reverseString, substring } from 'casenator';
+import { 
+    toCamelCase,
+    toPascalCase,
+    toKebabCase,
+    toUpperCase,
+    reverseString,
+    substring,
+    toCapitalCase,
+    toConstantCase,
+    toDotCase,
+    toNoCase
+} from 'casenator';
 
 // Camel Case
 console.log(toCamelCase('Hello world!'));  // 'helloWorld'
@@ -53,6 +68,18 @@ console.log(reverseString('Hello'));       // 'olleH'
 
 // Substring
 console.log(substring('hello world', 0, 5));  // 'hello'
+
+// Capital Case
+console.log(toCapitalCase('hello world'));  // 'Hello World'
+
+// Dot Case
+console.log(toDotCase('hello-world'));  // 'hello.world'
+
+// Constant Case
+console.log(toConstantCase('hello world'));  // 'HELLO_WORLD'
+
+// No Case
+console.log(toNoCase('hello--world');  // 'hello world'
 ```
 
 ---
