@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/imevanc/casenator/compare/v1.0.0...v1.1.0) (2024-08-31)
+
+
+### Features
+
+* bump pkg ([1774a82](https://github.com/imevanc/casenator/commit/1774a82047b6d5291adc9bb27df03e324be64577))
+
 # 1.0.0 (2024-08-31)
 
 
