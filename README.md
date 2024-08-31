@@ -101,4 +101,4 @@ This project is licensed under the **MIT License**. See the [LICENCE](LICENCE) f
 
 ## 🙌 Contributing
 
-Feel free to contribute, raise issues, or suggest features to make **Casenator** even better! 🤘
+Feel free to contribute, raise issues, or suggest features to make **casenator** even better! 🤘
