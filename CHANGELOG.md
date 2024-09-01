@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/imevanc/casenator/compare/v1.2.1...v1.3.0) (2024-09-01)
+
+
+### Features
+
+* add snake case ([#12](https://github.com/imevanc/casenator/issues/12)) ([6096579](https://github.com/imevanc/casenator/commit/60965790fa5fb447d7c83644546155f5ab8f79ad))
+
 ## [1.2.1](https://github.com/imevanc/casenator/compare/v1.2.0...v1.2.1) (2024-08-31)
 
 
