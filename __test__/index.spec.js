@@ -9,6 +9,7 @@ import {
   toLowerCase,
   toNoCase,
   toPascalCase,
+  toSnakeCase,
   toUpperCase,
 } from "../src";
 
@@ -311,5 +312,69 @@ describe("toNoCase", () => {
 
   test("should handle special characters", () => {
     expect(toNoCase("hello-world!")).toBe("hello world");
+  });
+});
+
+describe("toSnakeCase", () => {
+  test("should convert mixed cases and spaces to snake_case", () => {
+    expect(toSnakeCase("hello world")).toBe("hello_world");
+    expect(toSnakeCase("HELLO WORLD")).toBe("hello_world");
+    expect(toSnakeCase("hello-world")).toBe("hello_world");
+    expect(toSnakeCase("hello_world")).toBe("hello_world");
+    expect(toSnakeCase("helloWorld")).toBe("hello_world");
+    expect(toSnakeCase("HelloWorld")).toBe("hello_world");
+    expect(toSnakeCase("   Hello World  ")).toBe("hello_world");
+    expect(toSnakeCase("Hello____World ")).toBe("hello_world");
+    expect(toSnakeCase("Hello____World_+ ")).toBe("hello_world");
+    expect(toSnakeCase("Hello____World/")).toBe("hello_world");
+    expect(toSnakeCase("Hello/World")).toBe("hello_world");
+  });
+
+  test("should handle leading and trailing spaces", () => {
+    expect(toSnakeCase("  hello world  ")).toBe("hello_world");
+    expect(toSnakeCase("   Hello-World   ")).toBe("hello_world");
+  });
+
+  test("should handle special characters", () => {
+    expect(toSnakeCase("hello@world!")).toBe("hello_world");
+    expect(toSnakeCase("hello#world$")).toBe("hello_world");
+    expect(toSnakeCase("hello/world")).toBe("hello_world");
+    expect(toSnakeCase("hello(world)")).toBe("hello_world");
+    expect(toSnakeCase("hello[world]")).toBe("hello_world");
+  });
+
+  test("should handle numbers in strings", () => {
+    expect(toSnakeCase("helloWorld123")).toBe("hello_world123");
+    expect(toSnakeCase("123HelloWorld")).toBe("123_hello_world");
+  });
+
+  test("should handle single word inputs", () => {
+    expect(toSnakeCase("hello")).toBe("hello");
+    expect(toSnakeCase("HELLO")).toBe("hello");
+  });
+
+  test("should handle empty string", () => {
+    expect(toSnakeCase("")).toBe("");
+  });
+
+  test("should throw error for non-string input", () => {
+    expect(() => toSnakeCase(123)).toThrow(TypeError);
+    expect(() => toSnakeCase({})).toThrow(TypeError);
+    expect(() => toSnakeCase([])).toThrow(TypeError);
+  });
+
+  test("should handle multiple spaces and underscores", () => {
+    expect(toSnakeCase("hello  world")).toBe("hello_world");
+    expect(toSnakeCase("hello__world")).toBe("hello_world");
+    expect(toSnakeCase("hello   world")).toBe("hello_world");
+  });
+
+  test("should handle camelCase mixed with other separators", () => {
+    expect(toSnakeCase("helloWorld-test_example")).toBe(
+      "hello_world_test_example",
+    );
+    expect(toSnakeCase("helloWorldTest-Example")).toBe(
+      "hello_world_test_example",
+    );
   });
 });
