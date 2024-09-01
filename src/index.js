@@ -2,9 +2,7 @@
  * Converts a string to camelCase.
  */
 export const toCamelCase = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input
     .replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : "")) // Remove spaces/hyphens/underscores and capitalize following letters
     .replace(/^[A-Z]/, (match) => match.toLowerCase()); // Ensure the first letter is lowercase
@@ -14,9 +12,7 @@ export const toCamelCase = (input) => {
  * Converts a string to PascalCase.
  */
 export const toPascalCase = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input
     .replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : "")) // Remove spaces/hyphens/underscores and capitalize following letters
     .replace(/^[a-z]/, (match) => match.toUpperCase()); // Capitalize the first letter of the first word
@@ -26,9 +22,7 @@ export const toPascalCase = (input) => {
  * Converts a string to kebab-case.
  */
 export const toKebabCase = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input
     .replace(/([a-z])([A-Z])/g, "$1-$2") // Add hyphen between camelCase words
     .replace(/[_\s]+/g, "-") // Replace spaces or underscores with hyphens
@@ -41,9 +35,7 @@ export const toKebabCase = (input) => {
  * Converts a string to upper case.
  */
 export const toUpperCase = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input.toUpperCase();
 };
 
@@ -51,9 +43,7 @@ export const toUpperCase = (input) => {
  * Converts a string to lower case.
  */
 export const toLowerCase = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input.toLowerCase();
 };
 
@@ -61,9 +51,7 @@ export const toLowerCase = (input) => {
  * Converts a string to a substring.
  */
 export const substring = (input, start, end) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input.substring(start, end);
 };
 
@@ -71,9 +59,7 @@ export const substring = (input, start, end) => {
  * Reverse a string.
  */
 export const reverseString = (input) => {
-  if (typeof input !== "string") {
-    throw new TypeError("Input must be a string");
-  }
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
   return input.split("").reverse().join("");
 };
 
@@ -129,4 +115,19 @@ export const toNoCase = (input) => {
     .replace(/[\s\-_.\/]+/g, " ") // Replace remaining delimiters with a single space
     .trim() // Remove leading/trailing whitespace
     .replace(/\s+/g, " "); // Replace multiple consecutive spaces with a single space
+};
+
+/**
+ * Converts a string to snake_case.
+ */
+export const toSnakeCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .trim() // Remove leading/trailing spaces
+    .replace(/([a-z0-9])([A-Z])/g, "$1_$2") // Insert underscore between lowercase/number and uppercase letters
+    .replace(/[\s\-]+/g, "_") // Replace spaces and hyphens with underscores
+    .replace(/[^a-z0-9_]+/gi, "_") // Replace all non-alphanumeric characters with underscores
+    .replace(/_+/g, "_") // Replace multiple consecutive underscores with a single underscore
+    .replace(/(^_|_$)/g, "") // Remove leading or trailing underscores
+    .toLowerCase(); // Convert the entire string to lowercase
 };
