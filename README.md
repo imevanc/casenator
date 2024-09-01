@@ -20,6 +20,7 @@
 - 🐒 **DotCase** - Format string in `dot.case`.
 - 🦀 **ConstantCase** - Get your string into `CONSTANT_CASE`.
 - 🐸 **NoCase** - Convert any string to `no case`.
+- 🐬 **SnakeCase** - Format string in `snake_case`.
 
 ---
 
@@ -48,7 +49,8 @@ import {
     toCapitalCase,
     toConstantCase,
     toDotCase,
-    toNoCase
+    toNoCase,
+    toSnakeCase
 } from 'casenator';
 
 // Camel Case
@@ -79,7 +81,10 @@ console.log(toDotCase('hello-world'));  // 'hello.world'
 console.log(toConstantCase('hello world'));  // 'HELLO_WORLD'
 
 // No Case
-console.log(toNoCase('hello--world');  // 'hello world'
+console.log(toNoCase('hello--world'));  // 'hello world'
+
+// Snake Case
+console.log(toSnakeCase('hello world')); // 'hello_world'
 ```
 
 ---
