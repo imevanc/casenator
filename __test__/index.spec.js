@@ -9,6 +9,7 @@ import {
   toLowerCase,
   toNoCase,
   toPascalCase,
+  toPathCase,
   toSnakeCase,
   toUpperCase,
 } from "../src";
@@ -376,5 +377,64 @@ describe("toSnakeCase", () => {
     expect(toSnakeCase("helloWorldTest-Example")).toBe(
       "hello_world_test_example",
     );
+  });
+});
+
+describe("toPathCase", () => {
+  // Valid Cases
+  test("should convert HeLLo_world-123! to /helloWorld123", () => {
+    expect(toPathCase("HeLLo_world-123!")).toBe("/helloWorld123");
+  });
+
+  test("should convert hello 123 world to /helloWorld123", () => {
+    expect(toPathCase("hello 123 world")).toBe("/hello123World");
+  });
+
+  test("should convert hello-world to /helloWorld", () => {
+    expect(toPathCase("hello-world")).toBe("/helloWorld");
+  });
+
+  test("should convert space-separated string to /camelCase", () => {
+    expect(toPathCase("hello world")).toBe("/helloWorld");
+  });
+
+  test("should convert underscore-separated string to /camelCase", () => {
+    expect(toPathCase("hello_world")).toBe("/helloWorld");
+  });
+
+  test("should convert mixed-case string with symbols to /camelCase", () => {
+    expect(toPathCase("HeLLo_WoRld-123!")).toBe("/helloWorld123");
+  });
+
+  test("should convert a single word to camelCase with a leading slash", () => {
+    expect(toPathCase("HELLO")).toBe("/hello");
+  });
+
+  // Edge Cases
+  test("should return empty string for empty input", () => {
+    expect(toPathCase("")).toBe("/");
+  });
+
+  test("should handle string with only special characters", () => {
+    expect(toPathCase("!@#$%^&*")).toBe("/");
+  });
+
+  test("should handle string with multiple spaces", () => {
+    expect(toPathCase("  hello   world  ")).toBe("/helloWorld");
+  });
+
+  // Error Cases
+  test("should throw TypeError when input is not a string", () => {
+    expect(() => toPathCase(123)).toThrow(TypeError);
+    expect(() => toPathCase(null)).toThrow(TypeError);
+    expect(() => toPathCase(undefined)).toThrow(TypeError);
+    expect(() => toPathCase({})).toThrow(TypeError);
+    expect(() => toPathCase([])).toThrow(TypeError);
+  });
+
+  test("should throw TypeError with the correct message when input is not a string", () => {
+    expect(() => toPathCase(123)).toThrow("Input must be a string");
+    expect(() => toPathCase([])).toThrow("Input must be a string");
+    expect(() => toPathCase({})).toThrow("Input must be a string");
   });
 });

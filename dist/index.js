@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toUpperCase = exports.toSnakeCase = exports.toPascalCase = exports.toNoCase = exports.toLowerCase = exports.toKebabCase = exports.toDotCase = exports.toConstantCase = exports.toCapitalCase = exports.toCamelCase = exports.substring = exports.reverseString = void 0;
+exports.toUpperCase = exports.toSnakeCase = exports.toPathCase = exports.toPascalCase = exports.toNoCase = exports.toLowerCase = exports.toKebabCase = exports.toDotCase = exports.toConstantCase = exports.toCapitalCase = exports.toCamelCase = exports.substring = exports.reverseString = void 0;
 /**
  * Converts a string to camelCase.
  */
@@ -138,4 +138,23 @@ var toSnakeCase = exports.toSnakeCase = function toSnakeCase(input) {
   .replace(/_+/g, "_") // Replace multiple consecutive underscores with a single underscore
   .replace(/(^_|_$)/g, "") // Remove leading or trailing underscores
   .toLowerCase(); // Convert the entire string to lowercase
+};
+
+/**
+ * Converts a string to /pathCase
+ */
+var toPathCase = exports.toPathCase = function toPathCase(input) {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return "/" + input.trim() // Remove leading/trailing spaces
+  .replace(/[^a-zA-Z0-9]+/g, " ") // Replace non-alphanumeric characters with spaces
+  .replace(/\s+/g, " ") // Normalize multiple spaces to a single space
+  .split(" ") // Split by spaces into words
+  .map(function (word, index) {
+    if (index === 0) {
+      return word.toLowerCase(); // First word stays lowercase
+    }
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // Capitalize the first letter of subsequent words
+  }).join("") // Join back into a single string
+  .replace(/[^a-zA-Z0-9]/g, "") // Remove any remaining non-alphanumeric characters
+  ;
 };
