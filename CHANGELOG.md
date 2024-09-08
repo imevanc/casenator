@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/imevanc/casenator/compare/v1.3.0...v1.4.0) (2024-09-08)
+
+
+### Bug Fixes
+
+* add ci at branch level ([#15](https://github.com/imevanc/casenator/issues/15)) ([9db2a0e](https://github.com/imevanc/casenator/commit/9db2a0e468953bca0193fb9ee1c70a89cdc854e6))
+* test ([#16](https://github.com/imevanc/casenator/issues/16)) ([6ad782b](https://github.com/imevanc/casenator/commit/6ad782bfe9fe25b319eda6793024537502726e7d))
+
+
+### Features
+
+* add path case ([#14](https://github.com/imevanc/casenator/issues/14)) ([90acdf1](https://github.com/imevanc/casenator/commit/90acdf146977983f480c1c1126292b67050a8a61))
+
 # [1.3.0](https://github.com/imevanc/casenator/compare/v1.2.1...v1.3.0) (2024-09-01)
 
 
