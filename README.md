@@ -21,6 +21,7 @@
 - 🦀 **ConstantCase** - Get your string into `CONSTANT_CASE`.
 - 🐸 **NoCase** - Convert any string to `no case`.
 - 🐬 **SnakeCase** - Format string in `snake_case`.
+- 🦁 **PathCase** - Get your string into `/pathCase`.
 
 ---
 
@@ -50,7 +51,8 @@ import {
     toConstantCase,
     toDotCase,
     toNoCase,
-    toSnakeCase
+    toSnakeCase,
+    toPathCase
 } from 'casenator';
 
 // Camel Case
@@ -84,7 +86,10 @@ console.log(toConstantCase('hello world'));  // 'HELLO_WORLD'
 console.log(toNoCase('hello--world'));  // 'hello world'
 
 // Snake Case
-console.log(toSnakeCase('hello world')); // 'hello_world'
+console.log(toSnakeCase('hello world')); // 'hello_world'\
+
+// Path Case
+console.log(toPathCase('hello world')); // '/helloWorld'
 ```
 
 ---
