@@ -131,3 +131,26 @@ export const toSnakeCase = (input) => {
     .replace(/(^_|_$)/g, "") // Remove leading or trailing underscores
     .toLowerCase(); // Convert the entire string to lowercase
 };
+
+/**
+ * Converts a string to /pathCase
+ */
+export const toPathCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return (
+    "/" +
+    input
+      .trim() // Remove leading/trailing spaces
+      .replace(/[^a-zA-Z0-9]+/g, " ") // Replace non-alphanumeric characters with spaces
+      .replace(/\s+/g, " ") // Normalize multiple spaces to a single space
+      .split(" ") // Split by spaces into words
+      .map((word, index) => {
+        if (index === 0) {
+          return word.toLowerCase(); // First word stays lowercase
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(); // Capitalize the first letter of subsequent words
+      })
+      .join("") // Join back into a single string
+      .replace(/[^a-zA-Z0-9]/g, "") // Remove any remaining non-alphanumeric characters
+  );
+};
