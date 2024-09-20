@@ -3,6 +3,7 @@ import {
   substring,
   toCamelCase,
   toCapitalCase,
+  toCobolCase,
   toConstantCase,
   toDotCase,
   toKebabCase,
@@ -436,5 +437,96 @@ describe("toPathCase", () => {
     expect(() => toPathCase(123)).toThrow("Input must be a string");
     expect(() => toPathCase([])).toThrow("Input must be a string");
     expect(() => toPathCase({})).toThrow("Input must be a string");
+  });
+});
+
+describe("COBOL-CASE", () => {
+  // Valid Cases
+  test("should convert camelCase to COBOL-CASE", () => {
+    expect(toCobolCase("someVariableName")).toBe("SOME-VARIABLE-NAME");
+  });
+
+  test("should convert snake_case to COBOL-CASE", () => {
+    expect(toCobolCase("some_variable_name")).toBe("SOME-VARIABLE-NAME");
+  });
+
+  test("should convert space-separated string to COBOL-CASE", () => {
+    expect(toCobolCase("some variable name")).toBe("SOME-VARIABLE-NAME");
+  });
+
+  test("should convert PascalCase to COBOL-CASE", () => {
+    expect(toCobolCase("PascalCaseVariable")).toBe("PASCAL-CASE-VARIABLE");
+  });
+
+  test("should convert kebab-case to COBOL-CASE", () => {
+    expect(toCobolCase("kebab-case-variable")).toBe("KEBAB-CASE-VARIABLE");
+  });
+
+  test("should convert mixed-case string with numbers to COBOL-CASE", () => {
+    expect(toCobolCase("variable1Name2")).toBe("VARIABLE-1-NAME-2");
+  });
+
+  test("should convert single word to uppercase", () => {
+    expect(toCobolCase("variable")).toBe("VARIABLE");
+  });
+
+  // Edge Cases
+  test("should return empty string for empty input", () => {
+    expect(toCobolCase("")).toBe("");
+  });
+
+  test("should handle string with special characters", () => {
+    expect(toCobolCase("!@#$%^&*")).toBe("");
+  });
+
+  test("should handle string with multiple spaces", () => {
+    expect(toCobolCase("  hello   world  ")).toBe("HELLO-WORLD");
+  });
+
+  test("should convert /pathCase to COBOL-CASE", () => {
+    expect(toCobolCase("/pathCase/variableName")).toBe(
+      "PATH-CASE-VARIABLE-NAME",
+    );
+  });
+
+  test("should convert PascalCase to COBOL-CASE", () => {
+    expect(toCobolCase("PascalCaseVariable")).toBe("PASCAL-CASE-VARIABLE");
+  });
+
+  test("should convert camelCase to COBOL-CASE", () => {
+    expect(toCobolCase("camelCaseVariable")).toBe("CAMEL-CASE-VARIABLE");
+  });
+
+  test("should convert kebab-case to COBOL-CASE", () => {
+    expect(toCobolCase("kebab-case-variable")).toBe("KEBAB-CASE-VARIABLE");
+  });
+
+  test("should convert CONSTANT_CASE to COBOL-CASE", () => {
+    expect(toCobolCase("CONSTANT_CASE_VARIABLE")).toBe(
+      "CONSTANT-CASE-VARIABLE",
+    );
+  });
+
+  test("should convert no case string to COBOL-CASE", () => {
+    expect(toCobolCase("nospaces")).toBe("NOSPACES");
+  });
+
+  test("should convert mixed cases to COBOL-CASE", () => {
+    expect(toCobolCase("camelCase_snake_case")).toBe("CAMEL-CASE-SNAKE-CASE");
+  });
+
+  // Error Cases
+  test("should throw TypeError when input is not a string", () => {
+    expect(() => toCobolCase(123)).toThrow(TypeError);
+    expect(() => toCobolCase(null)).toThrow(TypeError);
+    expect(() => toCobolCase(undefined)).toThrow(TypeError);
+    expect(() => toCobolCase({})).toThrow(TypeError);
+    expect(() => toCobolCase([])).toThrow(TypeError);
+  });
+
+  test("should throw TypeError with the correct message when input is not a string", () => {
+    expect(() => toCobolCase(123)).toThrow("Input must be a string");
+    expect(() => toCobolCase([])).toThrow("Input must be a string");
+    expect(() => toCobolCase({})).toThrow("Input must be a string");
   });
 });

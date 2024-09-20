@@ -23,6 +23,7 @@
 - 🐸 **NoCase** - Convert any string to `no case`.
 - 🐬 **SnakeCase** - Format string in `snake_case`.
 - 🦁 **PathCase** - Get your string into `/pathCase`.
+- 🦧 **CobolCase** - Format string in `COBOL-CASE`.
 
 ---
 
@@ -53,7 +54,8 @@ import {
     toDotCase,
     toNoCase,
     toSnakeCase,
-    toPathCase
+    toPathCase,
+    toCobolCase
 } from 'casenator';
 
 // Camel Case
@@ -91,6 +93,9 @@ console.log(toSnakeCase('hello world')); // 'hello_world'\
 
 // Path Case
 console.log(toPathCase('hello world')); // '/helloWorld'
+
+// Cobol Case
+console.log(toCobolCase('hello world')); // 'HELLO-WORLD'
 ```
 
 ---
