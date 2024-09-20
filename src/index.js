@@ -154,3 +154,26 @@ export const toPathCase = (input) => {
       .replace(/[^a-zA-Z0-9]/g, "") // Remove any remaining non-alphanumeric characters
   );
 };
+
+/**
+ * Converts a string to COBOL-CASE
+ */
+export const toCobolCase = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  return input
+    .split("/") // Split the string by slashes to handle path cases
+    .map(
+      (segment) =>
+        segment
+          .trim() // Trim leading and trailing whitespace
+          .replace(/[^a-zA-Z0-9\s_-]/g, "") // Remove all non-alphanumeric characters except spaces, underscores, and hyphens
+          .replace(/[_-]/g, " ") // Replace underscores and hyphens with spaces for snake_case and kebab-case handling
+          .replace(/([a-zA-Z])([0-9])/g, "$1 $2") // Insert space between letters and numbers
+          .replace(/([0-9])([a-zA-Z])/g, "$1 $2") // Insert space between numbers and letters
+          .replace(/([a-z0-9])([A-Z])/g, "$1 $2") // Insert space before capital letters
+          .replace(/\s+/g, "-") // Replace multiple spaces with a single hyphen
+          .toUpperCase(), // Convert to uppercase
+    )
+    .filter(Boolean) // Remove any empty segments from the split
+    .join("-"); // Join all segments with hyphens
+};
