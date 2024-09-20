@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/imevanc/casenator/compare/v1.4.0...v1.5.0) (2024-09-20)
+
+
+### Features
+
+* add cobol case ([#20](https://github.com/imevanc/casenator/issues/20)) ([1b2bec9](https://github.com/imevanc/casenator/commit/1b2bec9d9bf3220dddb1f1f4b698f8527e72c3f7))
+
 # [1.4.0](https://github.com/imevanc/casenator/compare/v1.3.0...v1.4.0) (2024-09-08)
 
 
