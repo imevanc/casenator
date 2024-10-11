@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toUpperCase = exports.toSnakeCase = exports.toPathCase = exports.toPascalCase = exports.toNoCase = exports.toLowerCase = exports.toKebabCase = exports.toDotCase = exports.toConstantCase = exports.toCobolCase = exports.toCapitalCase = exports.toCamelCase = exports.substring = exports.reverseString = void 0;
+exports.toUpperCase = exports.toSnakeCase = exports.toPathCase = exports.toPascalCase = exports.toNoCase = exports.toLowerCase = exports.toLeetSpeak = exports.toKebabCase = exports.toDotCase = exports.toConstantCase = exports.toCobolCase = exports.toCapitalCase = exports.toCamelCase = exports.substring = exports.reverseString = void 0;
 /**
  * Converts a string to camelCase.
  */
@@ -177,4 +177,28 @@ var toCobolCase = exports.toCobolCase = function toCobolCase(input) {
   } // Convert to uppercase
   ).filter(Boolean) // Remove any empty segments from the split
   .join("-"); // Join all segments with hyphens
+};
+var toLeetSpeak = exports.toLeetSpeak = function toLeetSpeak(input) {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  var leetMap = {
+    a: "4",
+    e: "3",
+    i: "1",
+    o: "0",
+    s: "5",
+    t: "7",
+    l: "1",
+    g: "6",
+    b: "8",
+    r: "2"
+  };
+  return input.split("").map(function (_char) {
+    var lowerChar = _char.toLowerCase(); // Convert char to lowercase for consistent mapping
+    var mappedChar = leetMap[lowerChar]; // Map to leetspeak if available
+    if (mappedChar) {
+      return _char === _char.toUpperCase() ? mappedChar.toUpperCase() : mappedChar;
+    } else {
+      return _char; // Preserve original non-leet chars (spaces, punctuation, etc.)
+    }
+  }).join("");
 };
