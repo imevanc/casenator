@@ -7,6 +7,7 @@ import {
   toConstantCase,
   toDotCase,
   toKebabCase,
+  toLeetSpeak,
   toLowerCase,
   toNoCase,
   toPascalCase,
@@ -528,5 +529,52 @@ describe("COBOL-CASE", () => {
     expect(() => toCobolCase(123)).toThrow("Input must be a string");
     expect(() => toCobolCase([])).toThrow("Input must be a string");
     expect(() => toCobolCase({})).toThrow("Input must be a string");
+  });
+});
+
+describe("toLeetSpeak", () => {
+  // Test for basic leet conversions
+  test("should convert lowercase letters to leet speak", () => {
+    expect(toLeetSpeak("leet")).toBe("1337");
+    expect(toLeetSpeak("gamer")).toBe("64m32");
+    expect(toLeetSpeak("robot")).toBe("20807");
+  });
+
+  // Test for handling uppercase letters
+  test("should convert uppercase letters to leet speak and preserve their case", () => {
+    expect(toLeetSpeak("LEET")).toBe("1337");
+    expect(toLeetSpeak("GAMER")).toBe("64M32");
+    expect(toLeetSpeak("RoBoT")).toBe("20807");
+  });
+
+  // Test for non-alphabetic characters (should be preserved)
+  test("should preserve non-alphabetic characters like spaces, punctuation, and numbers", () => {
+    expect(toLeetSpeak("hello world!")).toBe("h3110 w021d!"); // Corrected expected value
+    expect(toLeetSpeak("123!")).toBe("123!");
+    expect(toLeetSpeak("leet speak 2.0")).toBe("1337 5p34k 2.0");
+  });
+
+  // Test for mixed alphanumeric strings
+  test("should handle mixed alphanumeric and leet mappings properly", () => {
+    expect(toLeetSpeak("a1b2c3")).toBe("4182c3"); // Corrected expected value
+  });
+
+  // Test for empty string input
+  test("should return an empty string if input is an empty string", () => {
+    expect(toLeetSpeak("")).toBe("");
+  });
+
+  // Test for non-string input (should throw a TypeError)
+  test("should throw a TypeError when input is not a string", () => {
+    expect(() => toLeetSpeak(12345)).toThrow(TypeError);
+    expect(() => toLeetSpeak(null)).toThrow(TypeError);
+    expect(() => toLeetSpeak(undefined)).toThrow(TypeError);
+    expect(() => toLeetSpeak({})).toThrow(TypeError);
+  });
+
+  // Test for strings with no leet mappings (should return the same string)
+  test("should return the original string if no leet mappings are present", () => {
+    expect(toLeetSpeak("xyz")).toBe("xyz");
+    expect(toLeetSpeak("!@#$")).toBe("!@#$");
   });
 });

@@ -24,6 +24,7 @@
 - 🐬 **SnakeCase** - Format string in `snake_case`.
 - 🦁 **PathCase** - Get your string into `/pathCase`.
 - 🦧 **CobolCase** - Format string in `COBOL-CASE`.
+- 🐫 **LeetSpeak** - Make everything `1337 5p34k`
 
 ---
 
@@ -55,7 +56,8 @@ import {
     toNoCase,
     toSnakeCase,
     toPathCase,
-    toCobolCase
+    toCobolCase,
+    toLeetSpeak
 } from 'casenator';
 
 // Camel Case
@@ -96,6 +98,9 @@ console.log(toPathCase('hello world')); // '/helloWorld'
 
 // Cobol Case
 console.log(toCobolCase('hello world')); // 'HELLO-WORLD'
+
+// Leet Speak
+console.log(toLeetSpeak('hello world')) // h3110 w021d
 ```
 
 ---

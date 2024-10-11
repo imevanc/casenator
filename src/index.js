@@ -177,3 +177,35 @@ export const toCobolCase = (input) => {
     .filter(Boolean) // Remove any empty segments from the split
     .join("-"); // Join all segments with hyphens
 };
+
+export const toLeetSpeak = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+
+  const leetMap = {
+    a: "4",
+    e: "3",
+    i: "1",
+    o: "0",
+    s: "5",
+    t: "7",
+    l: "1",
+    g: "6",
+    b: "8",
+    r: "2",
+  };
+
+  return input
+    .split("")
+    .map((char) => {
+      const lowerChar = char.toLowerCase(); // Convert char to lowercase for consistent mapping
+      const mappedChar = leetMap[lowerChar]; // Map to leetspeak if available
+      if (mappedChar) {
+        return char === char.toUpperCase()
+          ? mappedChar.toUpperCase()
+          : mappedChar;
+      } else {
+        return char; // Preserve original non-leet chars (spaces, punctuation, etc.)
+      }
+    })
+    .join("");
+};
