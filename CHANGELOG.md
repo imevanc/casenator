@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/imevanc/casenator/compare/v1.5.0...v1.6.0) (2024-10-11)
+
+
+### Features
+
+* add toLeetSpeak ([#25](https://github.com/imevanc/casenator/issues/25)) ([0ed2be3](https://github.com/imevanc/casenator/commit/0ed2be36c64c7373f35eba9b0f2784672658ee90))
+
 # [1.5.0](https://github.com/imevanc/casenator/compare/v1.4.0...v1.5.0) (2024-09-20)
 
 
