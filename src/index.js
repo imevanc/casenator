@@ -177,3 +177,32 @@ export const toCobolCase = (input) => {
     .filter(Boolean) // Remove any empty segments from the split
     .join("-"); // Join all segments with hyphens
 };
+
+export const toLeetSpeak = (input) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+  const leetDictionary = {
+    A: "4",
+    a: "4",
+    E: "3",
+    e: "3",
+    I: "1",
+    i: "1",
+    O: "0",
+    o: "0",
+    S: "5",
+    s: "5",
+    T: "7",
+    t: "7",
+    L: "1",
+    l: "1",
+    B: "8",
+    b: "8",
+    G: "6",
+    g: "6",
+  };
+
+  return input
+    .split("")
+    .map((char) => leetDictionary[char] || char)
+    .join("");
+};
