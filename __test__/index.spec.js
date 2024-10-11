@@ -7,6 +7,7 @@ import {
   toConstantCase,
   toDotCase,
   toKebabCase,
+  toLeetSpeak,
   toLowerCase,
   toNoCase,
   toPascalCase,
@@ -528,5 +529,58 @@ describe("COBOL-CASE", () => {
     expect(() => toCobolCase(123)).toThrow("Input must be a string");
     expect(() => toCobolCase([])).toThrow("Input must be a string");
     expect(() => toCobolCase({})).toThrow("Input must be a string");
+  });
+});
+
+describe("toLeetSpeak", () => {
+  test("should convert basic letters to leet speak", () => {
+    expect(toLeetSpeak("leet")).toBe("1337");
+    expect(toLeetSpeak("hack")).toBe("h4ck");
+  });
+
+  test("should convert letters with mixed case", () => {
+    expect(toLeetSpeak("LeEt")).toBe("1337");
+    expect(toLeetSpeak("HaCkEr")).toBe("h4ck3r");
+  });
+
+  test("should handle a string with numbers and symbols without converting them", () => {
+    expect(toLeetSpeak("12345!")).toBe("12345!");
+    expect(toLeetSpeak("hello-world!")).toBe("h3ll0-w0rld!");
+  });
+
+  test("should leave non-leet characters unchanged", () => {
+    expect(toLeetSpeak("!@#")).toBe("!@#");
+    expect(toLeetSpeak("spaces and punctuation stay")).toBe(
+      "sp4c3s 4nd pun5u47i0n 57ay",
+    );
+  });
+
+  test("should handle an empty string", () => {
+    expect(toLeetSpeak("")).toBe("");
+  });
+
+  test("should throw error if input is not a string", () => {
+    expect(() => toLeetSpeak(1234)).toThrow(TypeError);
+    expect(() => toLeetSpeak(null)).toThrow(TypeError);
+    expect(() => toLeetSpeak({})).toThrow(TypeError);
+  });
+
+  test("should handle strings with uppercase and lowercase letters", () => {
+    expect(toLeetSpeak("JavaScript")).toBe("J4v45crip7");
+    expect(toLeetSpeak("Testing")).toBe("73571n6");
+  });
+
+  test("should handle long sentences", () => {
+    expect(
+      toLeetSpeak(
+        "This is a longer sentence to test the leet speak functionality!",
+      ),
+    ).toBe("7hi5 i5 4 l0ng3r 53n73nc3 70 7357 7h3 l337 5p34k func7i0n4li7y!");
+  });
+
+  test("should not modify non-alphabetic characters", () => {
+    expect(toLeetSpeak("1234567890!@#$%^&*()_+-=")).toBe(
+      "1234567890!@#$%^&*()_+-=",
+    );
   });
 });
