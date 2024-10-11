@@ -191,17 +191,21 @@ export const toLeetSpeak = (input) => {
     l: "1",
     g: "6",
     b: "8",
+    r: "2",
   };
 
   return input
     .split("")
     .map((char) => {
-      const lowerChar = char.toLowerCase(); // Convert each char to lowercase for mapping
-      return leetMap[lowerChar]
-        ? char === char.toUpperCase()
-          ? leetMap[lowerChar].toUpperCase()
-          : leetMap[lowerChar]
-        : char; // Preserve original case for non-leet characters
+      const lowerChar = char.toLowerCase(); // Convert char to lowercase for consistent mapping
+      const mappedChar = leetMap[lowerChar]; // Map to leetspeak if available
+      if (mappedChar) {
+        return char === char.toUpperCase()
+          ? mappedChar.toUpperCase()
+          : mappedChar;
+      } else {
+        return char; // Preserve original non-leet chars (spaces, punctuation, etc.)
+      }
     })
     .join("");
 };
