@@ -5,6 +5,18 @@
 
 /** @type {import('jest').Config} */
 const config = {
+  transform: {
+    '^.+\\.mjs$': 'babel-jest', // Transform .mjs files
+    '^.+\\.cjs$': 'babel-jest',  // Optional: Transform .cjs files if needed
+  },
+  moduleFileExtensions: ['js', 'mjs', 'cjs', 'json', 'node'],
+  testEnvironment: 'node',
+  testMatch: [
+    '**/__tests__/**/*.(spec|test).cjs', // Targeting .cjs files in __tests__ directory
+    '**/?(*.)+(spec|test).cjs',           // General matching for .cjs files
+    '**/?(*.)+(spec|test).mjs',           // General matching for .mjs files, if needed
+    '**/?(*.)+(spec|test).js',            // General matching for .js files, if needed
+  ],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -155,8 +167,8 @@ const config = {
 
   // The glob patterns Jest uses to detect test files
   // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
+  //   "**/__tests__/**/*.c[jt]s?(x)",
+  //   "**/?(*.)+(spec|test).c[tj]s?(x)"
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
