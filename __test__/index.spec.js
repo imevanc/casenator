@@ -1,4 +1,5 @@
 import {
+  convertWithCustomDelimiter,
   reverseString,
   substring,
   toCamelCase,
@@ -576,5 +577,48 @@ describe("toLeetSpeak", () => {
   test("should return the original string if no leet mappings are present", () => {
     expect(toLeetSpeak("xyz")).toBe("xyz");
     expect(toLeetSpeak("!@#$")).toBe("!@#$");
+  });
+});
+
+describe("convertWithCustomDelimiter", () => {
+  // Test converting a simple string with "-" to "."
+  test('should convert "hello-world" from "-" to "."', () => {
+    const result = convertWithCustomDelimiter("hello-world", "-", ".");
+    expect(result).toBe("hello.world");
+  });
+
+  // Test converting a string with "_" to " "
+  test('should convert "hello_world_test" from "_" to " "', () => {
+    const result = convertWithCustomDelimiter("hello_world_test", "_", " ");
+    expect(result).toBe("hello world test");
+  });
+
+  // Test converting with different custom delimiters
+  test('should convert "file/name" from "/" to "\\"', () => {
+    const result = convertWithCustomDelimiter("file/name", "/", "\\");
+    expect(result).toBe("file\\name");
+  });
+
+  // Test when there is no delimiter to replace
+  test("should return the same string if no delimiter exists", () => {
+    const result = convertWithCustomDelimiter("noDelimiter", "-", ".");
+    expect(result).toBe("noDelimiter");
+  });
+
+  // Test with an empty string
+  test("should return an empty string if the input is empty", () => {
+    const result = convertWithCustomDelimiter("", "-", ".");
+    expect(result).toBe("");
+  });
+
+  // Test when the input is not a string (expect TypeError)
+  test("should throw TypeError if the input is not a string", () => {
+    expect(() => convertWithCustomDelimiter(123, "-", ".")).toThrow(TypeError);
+  });
+
+  // Test when the delimiter is not present in the string
+  test("should return the original string if delimiter is not present", () => {
+    const result = convertWithCustomDelimiter("testString", "_", ".");
+    expect(result).toBe("testString");
   });
 });

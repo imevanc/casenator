@@ -209,3 +209,17 @@ export const toLeetSpeak = (input) => {
     })
     .join("");
 };
+
+export const convertWithCustomDelimiter = (
+  input,
+  fromDelimiter,
+  toDelimiter,
+) => {
+  if (typeof input !== "string") throw new TypeError("Input must be a string");
+
+  // Split the input string using the `fromDelimiter`
+  const parts = input.split(fromDelimiter);
+
+  // Join the parts back together using the `toDelimiter`
+  return parts.join(toDelimiter);
+};
