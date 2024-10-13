@@ -25,6 +25,7 @@
 - 🦁 **PathCase** - Get your string into `/pathCase`.
 - 🦧 **CobolCase** - Format string in `COBOL-CASE`.
 - 🐫 **LeetSpeak** - Make everything `1337 5p34k`
+- 🦄 **ConvertWithCustomDelimiter** - Convert any string to `custom-delimiter where - is the new delimiter`
 
 ---
 
@@ -57,7 +58,8 @@ import {
     toSnakeCase,
     toPathCase,
     toCobolCase,
-    toLeetSpeak
+    toLeetSpeak,
+    convertToCustomDelimiter
 } from 'casenator';
 
 // Camel Case
@@ -91,7 +93,7 @@ console.log(toConstantCase('hello world'));  // 'HELLO_WORLD'
 console.log(toNoCase('hello--world'));  // 'hello world'
 
 // Snake Case
-console.log(toSnakeCase('hello world')); // 'hello_world'\
+console.log(toSnakeCase('hello world')); // 'hello_world'
 
 // Path Case
 console.log(toPathCase('hello world')); // '/helloWorld'
@@ -100,7 +102,10 @@ console.log(toPathCase('hello world')); // '/helloWorld'
 console.log(toCobolCase('hello world')); // 'HELLO-WORLD'
 
 // Leet Speak
-console.log(toLeetSpeak('hello world')) // h3110 w021d
+console.log(toLeetSpeak('hello world')); // 'h3110 w021d'
+
+// Convert With Custom Delimiter
+convertWithCustomDelimiter("hello-world", "-", "."); // 'hello.world'
 ```
 
 ---
