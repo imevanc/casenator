@@ -1,3 +1,16 @@
+# [1.7.0](https://github.com/imevanc/casenator/compare/v1.6.0...v1.7.0) (2024-10-13)
+
+
+### Bug Fixes
+
+* fix release file ([#27](https://github.com/imevanc/casenator/issues/27)) ([5627819](https://github.com/imevanc/casenator/commit/5627819e75c14b9d4042106ef3193d4e1aa3ff1b))
+* husky ([fb5622c](https://github.com/imevanc/casenator/commit/fb5622ca8e9a1d51659a377301dbfab999575a4a))
+
+
+### Features
+
+* add function and unit tests ([#26](https://github.com/imevanc/casenator/issues/26)) ([a5fe87e](https://github.com/imevanc/casenator/commit/a5fe87ecb33139f9768d43bae83058022e1d51cd))
+
 # [1.6.0](https://github.com/imevanc/casenator/compare/v1.5.0...v1.6.0) (2024-10-11)
 
 
