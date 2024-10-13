@@ -7,7 +7,6 @@
   "scripts": {
     "test:unit": "jest",
     "test:coverage": "jest --coverage",
-    "build": "babel src -d dist",
     "lint:fix": "prettier --write \"**/*.js\"",
     "prepare": "husky"
   },
