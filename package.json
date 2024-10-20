@@ -1,6 +1,6 @@
 {
   "name": "casenator",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Casenator is a lightweight utility package for converting strings between camelCase, PascalCase, kebab-case, uppercase, lowercase, and more, with built-in exception handling.",
   "main": "src/index.mjs",
   "type": "module",

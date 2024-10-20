@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/imevanc/casenator/compare/v1.7.1...v1.7.2) (2024-10-20)
+
+
+### Bug Fixes
+
+* fix the description of the convertWithCustomDelimiter ([#30](https://github.com/imevanc/casenator/issues/30)) ([3fcd4c2](https://github.com/imevanc/casenator/commit/3fcd4c286d30a2a758e3d83b023d4235b45e6463))
+
 ## [1.7.1](https://github.com/imevanc/casenator/compare/v1.7.0...v1.7.1) (2024-10-13)
 
 
