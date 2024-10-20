@@ -24,8 +24,8 @@
 - 🐬 **SnakeCase** - Format string in `snake_case`.
 - 🦁 **PathCase** - Get your string into `/pathCase`.
 - 🦧 **CobolCase** - Format string in `COBOL-CASE`.
-- 🐫 **LeetSpeak** - Make everything `1337 5p34k`
-- 🦄 **ConvertWithCustomDelimiter** - Convert any string to `custom-delimiter where - is the new delimiter`
+- 🐫 **LeetSpeak** - Make everything `1337 5p34k`.
+- 🦄 **ConvertWithCustomDelimiter** - Convert any string to `custom-delimiter where - is the new delimiter`.
 
 ---
 
@@ -105,7 +105,7 @@ console.log(toCobolCase('hello world')); // 'HELLO-WORLD'
 console.log(toLeetSpeak('hello world')); // 'h3110 w021d'
 
 // Convert With Custom Delimiter
-convertWithCustomDelimiter("hello-world", "-", "."); // 'hello.world'
+console.log(convertWithCustomDelimiter("hello-world", "-", ".")); // 'hello.world'
 ```
 
 ---
