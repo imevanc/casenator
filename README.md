@@ -1,4 +1,4 @@
-# 🦸‍♂️ Casenator - The Ultimate String Transformation Utility ⚡️
+# 🦸‍♂️ Casenator - The Ultimate String Transformation Utility
 
 [![npm version](https://img.shields.io/npm/v/casenator.svg)](https://www.npmjs.com/package/casenator)
 [![License](https://img.shields.io/npm/l/casenator)](https://img.shields.io/npm/l/casenator)
@@ -9,7 +9,6 @@
 
 
 ## 🔥 Features
-
 - 🔄 **CamelCase** – Convert any string to `camelCase`.
 - 🏛 **PascalCase** – Format strings in `PascalCase`.
 - 📐 **KebabCase** – Get your strings into `kebab-case`.
@@ -30,7 +29,6 @@
 ---
 
 ## 🚀 Installation
-
 First, add **Casenator** to your project via npm:
 
 ```bash
@@ -111,7 +109,6 @@ console.log(convertWithCustomDelimiter("hello-world", "-", ".")); // 'hello.worl
 ---
 
 ## 🔥 Why Casenator?
-
 - 🚀 **Lightweight** – Minimal footprint and blazingly fast.
 - 🛡️ **Robust** – Handles invalid inputs with helpful errors.
 - 🛠️ **Versatile** – Perfect for all your string formatting needs.
@@ -120,11 +117,9 @@ console.log(convertWithCustomDelimiter("hello-world", "-", ".")); // 'hello.worl
 ---
 
 ## 📝 License
-
 This project is licensed under the **MIT License**. See the [LICENCE](LICENCE) file for details.
 
 ---
 
 ## 🙌 Contributing
-
 Feel free to contribute, raise issues, or suggest features to make **casenator** even better! 🤘
