@@ -223,3 +223,67 @@ export const convertWithCustomDelimiter = (
   // Join the parts back together using the `toDelimiter`
   return parts.join(toDelimiter);
 };
+
+export const transformArrayStrings = (inputArray, caseType, options = {}) => {
+  if (!Array.isArray(inputArray)) {
+    throw new TypeError("Expected an array of strings");
+  }
+
+  const transformers = {
+    camel: toCamelCase,
+    pascal: toPascalCase,
+    kebab: toKebabCase,
+    upper: toUpperCase,
+    capital: toCapitalCase,
+    constant: toConstantCase,
+    dot: toDotCase,
+    no: toNoCase,
+    snake: toSnakeCase,
+    path: toPathCase,
+    cobol: toCobolCase,
+    leet: toLeetSpeak,
+    reverse: reverseString,
+    substring: substring,
+    custom: convertWithCustomDelimiter, // requires options
+  };
+
+  const transformer = transformers[caseType];
+  if (!transformer) {
+    throw new Error(`Unsupported case type: ${caseType}`);
+  }
+
+  // Validate required options for specific case types
+  if (caseType === "substring") {
+    const { start, end } = options;
+    if (typeof start !== "number" || typeof end !== "number") {
+      throw new Error(
+        `'substring' case requires numeric 'start' and 'end' options`,
+      );
+    }
+  }
+
+  if (caseType === "custom") {
+    const { fromDelimiter, toDelimiter } = options;
+    if (typeof fromDelimiter !== "string" || typeof toDelimiter !== "string") {
+      throw new Error(
+        `'custom' case requires 'fromDelimiter' and 'toDelimiter' as strings`,
+      );
+    }
+  }
+
+  return inputArray.map((str, i) => {
+    if (typeof str !== "string") {
+      throw new TypeError(`Element at index ${i} is not a string`);
+    }
+
+    if (caseType === "substring") {
+      return transformer(str, options.start, options.end);
+    }
+
+    if (caseType === "custom") {
+      return transformer(str, options.fromDelimiter, options.toDelimiter);
+    }
+
+    return transformer(str);
+  });
+};

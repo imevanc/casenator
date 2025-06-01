@@ -15,6 +15,7 @@ import {
   toPathCase,
   toSnakeCase,
   toUpperCase,
+  transformArrayStrings,
 } from "../src";
 
 describe("toCamelCase", () => {
@@ -620,5 +621,157 @@ describe("convertWithCustomDelimiter", () => {
   test("should return the original string if delimiter is not present", () => {
     const result = convertWithCustomDelimiter("testString", "_", ".");
     expect(result).toBe("testString");
+  });
+});
+
+describe("transformArrayStrings - success cases", () => {
+  test("camel case", () => {
+    const input = ["hello_world", "this_is_a_test"];
+    expect(transformArrayStrings(input, "camel")).toEqual(
+      input.map(toCamelCase),
+    );
+  });
+
+  test("pascal case", () => {
+    const input = ["hello world", "another example"];
+    expect(transformArrayStrings(input, "pascal")).toEqual(
+      input.map(toPascalCase),
+    );
+  });
+
+  test("kebab case", () => {
+    const input = ["Hello World", "Another Test"];
+    expect(transformArrayStrings(input, "kebab")).toEqual(
+      input.map(toKebabCase),
+    );
+  });
+
+  test("UPPERCASE", () => {
+    const input = ["hello", "world"];
+    expect(transformArrayStrings(input, "upper")).toEqual(
+      input.map(toUpperCase),
+    );
+  });
+
+  test("Capital Case", () => {
+    const input = ["hello world", "nice day"];
+    expect(transformArrayStrings(input, "capital")).toEqual(
+      input.map(toCapitalCase),
+    );
+  });
+
+  test("CONSTANT_CASE", () => {
+    const input = ["my value", "another one"];
+    expect(transformArrayStrings(input, "constant")).toEqual(
+      input.map(toConstantCase),
+    );
+  });
+
+  test("dot.case", () => {
+    const input = ["Dot Case Here", "Another.Value"];
+    expect(transformArrayStrings(input, "dot")).toEqual(input.map(toDotCase));
+  });
+
+  test("no case", () => {
+    const input = ["No-Case-Here", "Also.This"];
+    expect(transformArrayStrings(input, "no")).toEqual(input.map(toNoCase));
+  });
+
+  test("snake_case", () => {
+    const input = ["snake case", "AnotherTest"];
+    expect(transformArrayStrings(input, "snake")).toEqual(
+      input.map(toSnakeCase),
+    );
+  });
+
+  test("path/case", () => {
+    const input = ["path case", "Another Test"];
+    expect(transformArrayStrings(input, "path")).toEqual(input.map(toPathCase));
+  });
+
+  test("COBOL-CASE", () => {
+    const input = ["Cobol Case", "Hard Core"];
+    expect(transformArrayStrings(input, "cobol")).toEqual(
+      input.map(toCobolCase),
+    );
+  });
+
+  test("leet speak", () => {
+    const input = ["leet", "speak"];
+    expect(transformArrayStrings(input, "leet")).toEqual(
+      input.map(toLeetSpeak),
+    );
+  });
+
+  test("reverse", () => {
+    const input = ["abc", "123"];
+    expect(transformArrayStrings(input, "reverse")).toEqual(
+      input.map(reverseString),
+    );
+  });
+
+  test("substring", () => {
+    const input = ["hello world", "javascript"];
+    const options = { start: 0, end: 4 };
+    expect(transformArrayStrings(input, "substring", options)).toEqual(
+      input.map((str) => substring(str, options.start, options.end)),
+    );
+  });
+
+  test("custom delimiter", () => {
+    const input = ["one_two", "three_four"];
+    const options = { fromDelimiter: "_", toDelimiter: "-" };
+    expect(transformArrayStrings(input, "custom", options)).toEqual(
+      input.map((str) => convertWithCustomDelimiter(str, "_", "-")),
+    );
+  });
+
+  test("empty array returns empty array", () => {
+    expect(transformArrayStrings([], "camel")).toEqual([]);
+  });
+
+  test("works with empty strings", () => {
+    const input = ["", ""];
+    expect(transformArrayStrings(input, "upper")).toEqual(["", ""]);
+  });
+});
+
+describe("transformArrayStrings - error handling", () => {
+  test("throws on unsupported case type", () => {
+    expect(() => transformArrayStrings(["test"], "invalid")).toThrow(
+      /Unsupported case type/,
+    );
+  });
+
+  test("throws if input is not an array", () => {
+    expect(() => transformArrayStrings("not-an-array", "camel")).toThrow(
+      TypeError,
+    );
+  });
+
+  test("throws if array contains non-strings", () => {
+    expect(() => transformArrayStrings(["valid", 123], "camel")).toThrow(
+      TypeError,
+    );
+  });
+
+  test("throws if substring is missing options", () => {
+    expect(() => transformArrayStrings(["hello"], "substring")).toThrow();
+  });
+
+  test("throws if custom delimiter is missing options", () => {
+    expect(() => transformArrayStrings(["x_y"], "custom")).toThrow();
+  });
+
+  test("throws if custom delimiter is missing fromDelimiter", () => {
+    expect(() =>
+      transformArrayStrings(["x_y"], "custom", { toDelimiter: "-" }),
+    ).toThrow();
+  });
+
+  test("throws if custom delimiter is missing toDelimiter", () => {
+    expect(() =>
+      transformArrayStrings(["x_y"], "custom", { fromDelimiter: "_" }),
+    ).toThrow();
   });
 });

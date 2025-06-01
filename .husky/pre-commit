@@ -6,4 +6,4 @@ fi
 
 npm run test:unit
 npm run test:coverage
-npm run lint:fix
+npm run prettier

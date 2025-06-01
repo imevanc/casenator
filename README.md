@@ -25,6 +25,7 @@
 - 🦧 **CobolCase** - Format string in `COBOL-CASE`.
 - 🐫 **LeetSpeak** - Make everything `1337 5p34k`.
 - 🦄 **ConvertWithCustomDelimiter** - Convert any string to `custom-delimiter where - is the new delimiter`.
+- 🛠️ **TransformArrayStrings** - Transform an array of strings into various cases.
 
 ---
 
@@ -57,7 +58,8 @@ import {
     toPathCase,
     toCobolCase,
     toLeetSpeak,
-    convertToCustomDelimiter
+    convertToCustomDelimiter,
+    transformArrayStrings
 } from 'casenator';
 
 // Camel Case
@@ -104,6 +106,10 @@ console.log(toLeetSpeak('hello world')); // 'h3110 w021d'
 
 // Convert With Custom Delimiter
 console.log(convertWithCustomDelimiter("hello-world", "-", ".")); // 'hello.world'
+
+// Transform Array of Strings
+console.log(transformArrayStrings(['hello world', 'foo bar'], 'snake')); // ['hello_world', 'foo_bar']
+
 ```
 
 ---
