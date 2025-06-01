@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/imevanc/casenator/compare/v1.7.3...v1.8.0) (2025-06-01)
+
+
+### Features
+
+* create transform array strings ([#41](https://github.com/imevanc/casenator/issues/41)) ([2789896](https://github.com/imevanc/casenator/commit/2789896dcea305acf1a4045b33d3f281d64149cd))
+
 ## [1.7.3](https://github.com/imevanc/casenator/compare/v1.7.2...v1.7.3) (2024-12-25)
 
 
