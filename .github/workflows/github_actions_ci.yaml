@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 jobs:
-  test_lint:
-    name: Test Lint
+  test_prettier:
+    name: Test Prettier
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,8 +16,8 @@ jobs:
           node-version: "lts/*"
       - name: Install Dependencies
         run: npm install
-      - name: Run the lint tests
-        run: npm run lint:fix
+      - name: Run the prettier tests
+        run: npm run prettier
   test_unit:
     name: Test Unit
     runs-on: ubuntu-latest

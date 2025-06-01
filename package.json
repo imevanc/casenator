@@ -7,7 +7,8 @@
   "scripts": {
     "test:unit": "jest",
     "test:coverage": "jest --coverage",
-    "lint:fix": "prettier --write \"**/*.cjs\"",
+    "prettier:fix": "prettier --write \"**/*.cjs\"",
+    "prettier": "prettier --check \"**/*.cjs\"",
     "prepare": "husky"
   },
   "repository": {
