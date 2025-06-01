@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/imevanc/casenator/compare/v1.7.2...v1.7.3) (2024-12-25)
+
+
+### Bug Fixes
+
+* update deps and readme ([#36](https://github.com/imevanc/casenator/issues/36)) ([360fd83](https://github.com/imevanc/casenator/commit/360fd8320adfc59d3da3911eb34fe7b8e330eefd))
+
 ## [1.7.2](https://github.com/imevanc/casenator/compare/v1.7.1...v1.7.2) (2024-10-20)
 
 
